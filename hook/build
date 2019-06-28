@@ -1,2 +1,15 @@
 #!/bin/bash
 set -ex
+
+YTDLVERSION="$(wget -q -O- 'https://github.com/ytdl-org/youtube-dl/releases.atom' | grep '<id>' | sed -n '2p' | awk -F '/' '{print $3}' | sed s'/.$//')"
+
+TARGETS=()
+TARGETS+=(YTDLVERSION)
+TARGETS+=('latest')
+
+for TARGET in $TARGETS; do
+    docker image build \
+        --build-arg YTDLVERSION="$TARGET" \
+        --tag "$DOCKER_REPO:$TARGET" \
+        .
+done
