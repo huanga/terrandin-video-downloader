@@ -8,5 +8,5 @@ TARGETS+=(YTDLVERSION)
 TARGETS+=('latest')
 
 for TARGET in $TARGETS; do
-    docker psuh "$DOCKER_REPO:$TARGET"
+    docker push "$DOCKER_REPO:$TARGET"
 done
