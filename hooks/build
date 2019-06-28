@@ -4,7 +4,7 @@ set -ex
 YTDLVERSION="$(wget -q -O- 'https://github.com/ytdl-org/youtube-dl/releases.atom' | grep '<id>' | sed -n '2p' | awk -F '/' '{print $3}' | sed s'/.$//')"
 
 TARGETS=()
-TARGETS+=(YTDLVERSION)
+TARGETS+=($YTDLVERSION)
 TARGETS+=('latest')
 
 for TARGET in "${TARGETS[@]}"; do
