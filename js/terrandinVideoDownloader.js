@@ -2,8 +2,9 @@ $('#download').click(function (event) {
     event.preventDefault();
     console.log("Downloading triggred");
     var videoURL = $('#video_url').val();
+    var refererURL = $('#referer_url').val();
 
-    var evtSource = new EventSource('download.php?video=' + videoURL);
+    var evtSource = new EventSource('download.php?video=' + videoURL + '&referer=' + refererURL);
     evtSource.onmessage = function(evt) {
         $("#response-area").append(evt.data);
         $("#response-area").append('<br />');
