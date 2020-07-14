@@ -8,9 +8,9 @@ RUN apt-get update \
        locales \
     && rm -rf /var/lib/apt/lists/*
 
-RUN curl https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-1.1.0-linux-x86-64.tar.gz -O 
-    && tar -xzvf ./libwebp-1.1.0-linux-x86-64.tar.gz
-    && mv ./libwebp-1.1.0-linux-x86-64/bin/* /usr/local/bin/
+RUN curl https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-1.1.0-linux-x86-64.tar.gz -O \
+    && tar -xzvf ./libwebp-1.1.0-linux-x86-64.tar.gz \
+    && mv ./libwebp-1.1.0-linux-x86-64/bin/* /usr/local/bin/ \
     && rm -rf ./libwebp-1.1.0-linux-x86-64
 
 # Set the locale
