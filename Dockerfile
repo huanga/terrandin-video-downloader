@@ -9,6 +9,7 @@ RUN apt-get update \
        locales \
        libgmp10 \
        python3-mutagen \
+       phantomjs \
        libssh2-1-dev libc-ares-dev zlib1g-dev libsqlite3-dev pkg-config libssl-dev libexpat1-dev \
     && rm -rf /var/lib/apt/lists/*
 
