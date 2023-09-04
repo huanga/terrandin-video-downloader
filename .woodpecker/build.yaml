@@ -3,8 +3,8 @@ steps:
     image: debian:stable-slim
     commands:
       - ARIA2VERSION=$(cat ./dependency-versions/aria2-latest.txt)
-      - LIBWEBPVERSION=$(cat /dependency-versions/libwebp-latest.txt)
-      - YTDLPVERSION=$(cat /dependency-versions/yt-dlp-latest.txt)
+      - LIBWEBPVERSION=$(cat ./dependency-versions/libwebp-latest.txt)
+      - YTDLPVERSION=$(cat ./dependency-versions/yt-dlp-latest.txt)
 
   docker-build:
     image: woodpeckerci/plugin-docker-buildx
