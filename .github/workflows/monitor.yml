@@ -18,6 +18,17 @@ jobs:
           curl -sL https://api.github.com/repos/aria2/aria2/releases/latest | \
           jq -r ".tag_name" | \
           sed 's/release-//' > dependency-versions/aria2-latest.txt
+      - name: Fetch libwebp release version
+        run: |
+          curl -sL 'https://chromium.googlesource.com/webm/libwebp/+refs?format=JSON' | \
+          tail -n +2 | \
+          jq -r 'keys' | \
+          grep 'refs/tags' | \
+          grep -v '\-rc' | \
+          tail -1 | \
+          xargs echo | \
+          sed 's/refs\/tags\///' | \
+          sed 's/,//' > dependency-versions/libwebp-latest.txt
       - name: Check for modified files
         id: git-check
         run: echo modified=$([ -z "`git status --porcelain`" ] && echo "false" || echo "true") >> $GITHUB_OUTPUT
