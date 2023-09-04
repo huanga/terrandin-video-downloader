@@ -1,0 +1,22 @@
+steps:
+  setup-environments:
+    image: debian:stable-slim
+    commands:
+      - ARIA2VERSION=$(cat ./dependency-versions/aria2-latest.txt)
+      - LIBWEBPVERSION=$(cat /dependency-versions/libwebp-latest.txt)
+      - YTDLPVERSION=$(cat /dependency-versions/yt-dlp-latest.txt)
+
+  docker-build:
+    image: woodpeckerci/plugin-docker-buildx
+      settings:
+        build_args_from_env: [ARIA2VERSION, LIBWEBPVERSION, YTDLPVERSION]
+        platforms: linux/amd64,linux/arm64
+        secrets: [docker_password]
+        logins:
+          - registry: https://index.docker.io/v1/
+            username: huanga
+            password:
+              from_secret: docker_password
+        repo: huanga/terrandin-video-downloader
+        tags: ytdlp.${YTDLPVERSION}-aria2c.${ARIA2VERSION}-libwebp.${LIBWEBPVERSION},latest
+
