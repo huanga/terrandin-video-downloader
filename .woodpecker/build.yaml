@@ -5,7 +5,7 @@ steps:
       - ARIA2VERSION=$(cat ./dependency-versions/aria2-latest.txt)
       - LIBWEBPVERSION=$(cat ./dependency-versions/libwebp-latest.txt)
       - YTDLPVERSION=$(cat ./dependency-versions/yt-dlp-latest.txt)
-      - echo ytdlp.$YTDLPVERSION-aria2c.$ARIA2VERSION-libwebp.$LIBWEBPVERSION > .tags
+      - echo ytdlp.$YTDLPVERSION-aria2c.$ARIA2VERSION-libwebp.$LIBWEBPVERSION, latest > .tags
 
   docker-build:
     image: woodpeckerci/plugin-docker-buildx
