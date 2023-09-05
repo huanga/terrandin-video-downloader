@@ -18,5 +18,5 @@ steps:
           password:
             from_secret: docker_password
       repo: huanga/terrandin-video-downloader
-      tags: ytdlp.${YTDLPVERSION}-aria2c.${ARIA2VERSION}-libwebp.${LIBWEBPVERSION},latest
+      tags: ytdlp.{$YTDLPVERSION}-aria2c.{$ARIA2VERSION}-libwebp.{$LIBWEBPVERSION},latest
 
