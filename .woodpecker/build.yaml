@@ -10,6 +10,8 @@ steps:
   docker-build:
     image: woodpeckerci/plugin-docker-buildx
     settings:
+      tags: ytdlp${YTDLPVERSION}-aria2c${ARIA2VERSION}-libwebp${LIBWEBPVERSION},latest
+      repo: huanga/terrandin-video-downloader
       build_args_from_env: true
       platforms: linux/amd64
       secrets: [docker_password]
@@ -18,6 +20,3 @@ steps:
           username: huanga
           password:
             from_secret: docker_password
-      repo: huanga/terrandin-video-downloader
-      tags: ytdlp${YTDLPVERSION}-aria2c${ARIA2VERSION}-libwebp${LIBWEBPVERSION},latest
-      debug: true
