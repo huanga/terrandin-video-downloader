@@ -11,7 +11,7 @@ steps:
   docker-build:
     image: woodpeckerci/plugin-docker-buildx
     settings:
-      tags: latest,ytdlp$YTDLPVERSION
+      tags: latest,ytdlp{$YTDLPVERSION}
       repo: huanga/terrandin-video-downloader
       build_args_from_env: true
       platforms: linux/amd64
