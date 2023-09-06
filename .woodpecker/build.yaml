@@ -7,11 +7,6 @@ steps:
       - YTDLPVERSION=$(cat ./dependency-versions/yt-dlp-latest.txt)
       - echo "ytdlp$YTDLPVERSION-aria2c$ARIA2VERSION-libwebp$LIBWEBPVERSION,latest" > .tags
 
-  validate-tags:
-    image: busybox
-    commands:
-      - cat .tags
-
   docker-build:
     image: woodpeckerci/plugin-docker-buildx
     settings:
@@ -24,6 +19,5 @@ steps:
           password:
             from_secret: docker_password
       repo: huanga/terrandin-video-downloader
-      tags_file: .tags
       tags: ytdlp${YTDLPVERSION}-aria2c${ARIA2VERSION}-libwebp${LIBWEBPVERSION},latest
       debug: true
