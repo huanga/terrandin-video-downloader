@@ -5,11 +5,7 @@ steps:
       - ARIA2VERSION=$(cat ./dependency-versions/aria2-latest.txt)
       - LIBWEBPVERSION=$(cat ./dependency-versions/libwebp-latest.txt)
       - YTDLPVERSION=$(cat ./dependency-versions/yt-dlp-latest.txt)
-      - TAG=$(echo $YTDLPVERSION | sed 's/\.//g')
-      - TAG+='.'
-      - TAG+=$(echo $LIBWEBPVERSION | sed 's/\.//g')
-      - TAG+='.'
-      - TAG+=$(echo $ARIA2VERSION | sed 's/\.//g')
+      - TAG=$(echo $YTDLPVERSION | sed 's/\.//g')'.'$(echo $LIBWEBPVERSION | sed 's/\.//g')'.'$(echo $ARIA2VERSION | sed 's/\.//g')
       - echo "$TAG,latest" > .tags
       - cat .tags
 
