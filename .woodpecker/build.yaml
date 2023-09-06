@@ -12,11 +12,11 @@ steps:
   docker-build:
     image: woodpeckerci/plugin-docker-buildx
     settings:
-      tags_file: .tags
-      repo: huanga/terrandin-video-downloader
       build_args_from_env: true
       platforms: linux/amd64
       username:
         from_secret: docker_username
       password:
         from_secret: docker_password
+      repo: huanga/terrandin-video-downloader
+      tags_file: .tags
