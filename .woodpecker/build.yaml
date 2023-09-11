@@ -8,7 +8,8 @@ steps:
       - YTDLPVERSION=$(cat ./dependency-versions/yt-dlp-latest.txt)
       - TAG=$(echo $YTDLPVERSION | sed 's/\.//g')'.'$(echo $LIBWEBPVERSION | sed
         's/\.//g')'.'$(echo $ARIA2VERSION | sed 's/\.//g')
-      - echo "latest,$TAG" > .tags
+      - echo "$TAG" > .tags
+      - echo "latest" >> .tags
       - cat .tags
   docker-build:
     image: woodpeckerci/plugin-docker-buildx
